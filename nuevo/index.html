@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Federación de Patinaje Gran Buenos Aires</title>
+    <meta
+      name="description"
+      content="Federación oficial de patinaje artístico de Gran Buenos Aires con más de 100 clubes afiliados"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+              "federation-blue": "#003366",
+              "federation-green": "#5fb345",
+              "federation-yellow": "#eae634",
+              "federation-red": "#da3532",
+              "federation-celeste": "#34bce1",
+              "federation-white": "#ffffff",
+              "federation-black": "#1a1a1a",
+              "federation-gray": "#e0e0e0",
+            },
+            borderRadius: {
+              lg: "var(--radius)",
+              md: "calc(var(--radius) - 2px)",
+              sm: "calc(var(--radius) - 4px)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --federation-blue: #003366;
+        --federation-green: #5fb345;
+        --federation-yellow: #eae634;
+        --federation-red: #da3532;
+        --federation-celeste: #34bce1;
+        --federation-white: #ffffff;
+        --federation-black: #1a1a1a;
+        --federation-gray: #e0e0e0;
+
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 222.2 84% 4.9%;
+        --radius: 0.5rem;
+      }
+
+      .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 212.7 26.8% 83.9%;
+      }
+
+      /* Custom federation styles */
+      .federation-blue {
+        color: var(--federation-blue);
+      }
+      .bg-federation-blue {
+        background-color: var(--federation-blue);
+      }
+      .federation-green {
+        color: var(--federation-green);
+      }
+      .bg-federation-green {
+        background-color: var(--federation-green);
+      }
+      .federation-yellow {
+        color: var(--federation-yellow);
+      }
+      .bg-federation-yellow {
+        background-color: var(--federation-yellow);
+      }
+      .federation-red {
+        color: var(--federation-red);
+      }
+      .bg-federation-red {
+        background-color: var(--federation-red);
+      }
+      .federation-celeste {
+        color: var(--federation-celeste);
+      }
+      .bg-federation-celeste {
+        background-color: var(--federation-celeste);
+      }
+
+      /* Banner gradient background for header */
+      .federation-banner {
+        background: linear-gradient(
+          135deg,
+          #5fb345 0%,
+          #eae634 25%,
+          #da3532 50%,
+          #34bce1 75%,
+          #003366 100%
+        );
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .federation-banner::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(0, 0, 0, 0.2) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* Gradient text effect for main title */
+      .gradient-text {
+        background: linear-gradient(135deg, #ffffff 0%, #e0f2ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-foreground">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsOrganization",
+        "name": "Federación de Patinaje Gran Buenos Aires",
+        "description": "Federación oficial de patinaje artístico de Gran Buenos Aires con más de 100 clubes afiliados",
+        "url": "https://federacionpatinajegba.com",
+        "logo": "https://federacionpatinajegba.com/logo-federacion.png",
+        "sameAs": [
+          "https://www.facebook.com/federacionpatinajegba",
+          "https://www.instagram.com/federacionpatinajegba"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AR",
+          "addressRegion": "Buenos Aires"
+        },
+        "sport": "Patinaje Artístico"
+      }
+    </script>
+
+    <div class="min-h-screen bg-white">
+      <header class="bg-white shadow top-0 z-50">
+        <div class="container mx-auto px-6">
+          <div class="flex items-center justify-between min-h-20">
+            <!-- Logo -->
+            <div class="h-32 flex items-center justify-center">
+              <img
+                src="./public/images/companies/logo.png"
+                width="200"
+                height="200"
+                alt="logo"
+              />
+            </div>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-10">
+              <a
+                href="#inicio"
+                class="text-[#003D7A] hover:text-[#00A9E0] transition-colors font-semibold text-base"
+                >Inicio</a
+              >
+              <a
+                href="#institucion"
+                class="text-[#003D7A] hover:text-[#00A9E0] transition-colors font-semibold text-base"
+                >Institución</a
+              >
+              <a
+                href="#novedades"
+                class="text-[#003D7A] hover:text-[#00A9E0] transition-colors font-semibold text-base"
+                >Novedades</a
+              >
+              <a
+                href="#contacto"
+                class="text-[#003D7A] hover:text-[#00A9E0] transition-colors font-semibold text-base"
+                >Contacto</a
+              >
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+              <button
+                id="mobile-menu-btn"
+                class="flex flex-col gap-1.5 p-3"
+                aria-label="Menú"
+              >
+                <span class="w-6 h-0.5 bg-[#003D7A] rounded-full"></span>
+                <span class="w-6 h-0.5 bg-[#003D7A] rounded-full"></span>
+                <span class="w-6 h-0.5 bg-[#003D7A] rounded-full"></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Menu Dropdown -->
+          <nav
+            id="mobile-menu"
+            class="hidden md:hidden pb-4 border-t border-gray-200 mt-2"
+          >
+            <a
+              href="#inicio"
+              class="mobile-link block px-4 py-3 text-[#003D7A] hover:bg-gray-50 font-semibold"
+              >Inicio</a
+            >
+            <a
+              href="#institucion"
+              class="mobile-link block px-4 py-3 text-[#003D7A] hover:bg-gray-50 font-semibold"
+              >Institución</a
+            >
+            <a
+              href="#novedades"
+              class="mobile-link block px-4 py-3 text-[#003D7A] hover:bg-gray-50 font-semibold"
+              >Novedades</a
+            >
+            <a
+              href="#contacto"
+              class="mobile-link block px-4 py-3 text-[#003D7A] hover:bg-gray-50 font-semibold"
+              >Contacto</a
+            >
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section
+          id="inicio"
+          class="relative min-h-[650px] flex items-center justify-center overflow-hidden"
+          style="
+            background: linear-gradient(
+              90deg,
+              #b8d432 0%,
+              #f9b233 15%,
+              #f15a29 30%,
+              #e94190 50%,
+              #9b59b6 70%,
+              #00a9e0 100%
+            );
+          "
+        >
+          <div class="container mx-auto px-6 py-24 text-center relative z-10">
+            <h1
+              class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight drop-shadow-lg"
+            >
+              FEDERACIÓN DE PATINAJE
+              <br />
+              GRAN BUENOS AIRES
+            </h1>
+            <p
+              class="text-2xl md:text-3xl lg:text-4xl text-white mb-12 font-normal tracking-wide drop-shadow-md"
+            >
+              Pasión, Disciplina y Excelencia sobre Ruedas
+            </p>
+
+            <!-- Chevron down arrow -->
+            <div class="mb-8">
+              <svg
+                class="w-12 h-12 mx-auto text-white opacity-80 animate-bounce"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+
+            <button
+              onclick="document.getElementById('institucion').scrollIntoView({ behavior: 'smooth' })"
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive cursor-pointer bg-white text-[#003D7A] hover:bg-gray-100 text-base px-10 py-6 rounded-full font-bold shadow-xl hover:shadow-2xl h-auto"
+            >
+              Conocé Nuestra Institución
+            </button>
+          </div>
+        </section>
+
+        <!-- Sección Deportes -->
+        <section id="deportes" class="py-16 bg-white">
+          <div class="container mx-auto px-4">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-12 federation-blue"
+            >
+              Nuestros Deportes
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <!-- Patinaje Artístico -->
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden hover:shadow-2xl transition-shadow"
+              >
+                <div class="relative h-80">
+                  <img
+                    src="./public/images/design-mode/PHOTO-2025-11-27-19-43-13.jpg"
+                    alt="Patinaje Artístico"
+                    class="object-contain w-full h-full"
+                  />
+                </div>
+                <div class="px-6 p-8">
+                  <h3 class="text-3xl font-bold mb-4 federation-blue">
+                    Patinaje Artístico
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    El patinaje artístico combina técnica, expresión y
+                    creatividad. Nuestros atletas compiten en diversas
+                    categorías desde nivel C hasta internacional, demostrando
+                    excelencia en cada presentación.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Patinaje de Velocidad -->
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden hover:shadow-2xl transition-shadow"
+              >
+                <div class="relative h-80">
+                  <img
+                    src="./public/images/design-mode/velocidad.jpg"
+                    alt="Patinaje de Velocidad"
+                    class="object-contain w-full h-full"
+                  />
+                </div>
+                <div class="px-6 p-8">
+                  <h3 class="text-3xl font-bold mb-4 federation-red">
+                    Patinaje de Velocidad
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    La velocidad y la resistencia son fundamentales en esta
+                    disciplina. Nuestros patinadores compiten en pistas y
+                    circuitos, alcanzando velocidades impresionantes con técnica
+                    y determinación.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Novedades -->
+        <section id="novedades" class="py-16 bg-gray-50">
+          <div class="container mx-auto px-4">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-12 federation-blue"
+            >
+              Novedades
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div class="relative h-56">
+                  <img
+                    src="./public/images/design-mode/delfinamundial(1).jpg"
+                    alt="Delfina Veljanovich en Beijing"
+                    class="object-contain w-full h-full"
+                  />
+                </div>
+                <div class="px-6 p-6">
+                  <p class="text-sm text-gray-500 mb-2">Fecha: 28/10/2025</p>
+                  <h4 class="font-bold text-xl mb-3 federation-blue">
+                    Orgullo Internacional - Delfina en Beijing
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed">
+                    Nuestra atleta Delfina Veljanovich nos representó de manera
+                    increíble en el Beijing Artistic World Championships,
+                    logrando el 7° puesto del mundo. Un resultado que refleja
+                    dedicación, esfuerzo y pasión por este deporte. Detrás de
+                    este logro hay un proceso exigente, constante y lleno de
+                    aprendizaje. Felicitaciones Delfina y a todo su equipo.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div class="relative h-56">
+                  <img
+                    src="./public/images/design-mode/IMG-20251013-WA0095.jpg"
+                    alt="Campeones Copa Roberto Rodríguez"
+                    class="object-contain w-full h-full"
+                  />
+                </div>
+                <div class="px-6 p-6">
+                  <p class="text-sm text-gray-500 mb-2">Fecha: 05/10/2025</p>
+                  <h4 class="font-bold text-xl mb-3 federation-blue">
+                    Campeones en la Copa Roberto Rodríguez🏆
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed">
+                    Más de 200 patinadoras representaron con orgullo a nuestra
+                    Federación en la Copa Nacional Roberto Rodríguez, que se
+                    desarrolló en la Provincia de San Luis. Gracias a su
+                    esfuerzo, compromiso y pasión logramos subir a lo más alto
+                    del podio🇦🇷
+                  </p>
+                </div>
+              </div>
+
+              <!-- Noticia 3 -->
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div class="relative h-56">
+                  <img
+                    src="./public/images/design-mode/IMG-20251013-WA0097.jpg"
+                    alt="Presidente en Copa Adaptados"
+                    class="object-contain w-full h-full"
+                  />
+                </div>
+                <div class="px-6 p-6">
+                  <p class="text-sm text-gray-500 mb-2">Fecha: 01/10/2025</p>
+                  <h4 class="font-bold text-xl mb-3 federation-blue">
+                    Copa de Campeones en Adaptados 2025
+                  </h4>
+                  <p class="text-gray-600 leading-relaxed">
+                    Nuestro presidente Luciano Fernández se hizo presente en la
+                    Copa Nacional Roberto Rodríguez, acompañando a nuestra
+                    delegación y participando de la Ceremonia Oficial junto a
+                    representantes de todo el país. Con enorme orgullo recibimos
+                    la Copa de Campeones en Copa Adaptados 2025, fruto del
+                    esfuerzo, la dedicación y el talento de nuestros atletas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Institución -->
+        <section id="institucion" class="py-16 bg-white">
+          <div class="container mx-auto px-4">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-4 federation-blue"
+            >
+              Institución
+            </h2>
+            <p
+              class="text-center text-gray-600 mb-16 max-w-3xl mx-auto text-lg"
+            >
+              Conoce a las autoridades que lideran nuestra federación con
+              compromiso y dedicación
+            </p>
+
+            <div class="max-w-5xl mx-auto">
+              <h3 class="text-3xl font-bold mb-8 federation-blue text-center">
+                Autoridades
+              </h3>
+
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-blue rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">LF</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-blue">
+                      Luciano Fernandez
+                    </h4>
+                    <p class="text-gray-600 font-medium">Presidente</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-green rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">SR</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-green">
+                      Susana Ruz
+                    </h4>
+                    <p class="text-gray-600 font-medium">Vicepresidente</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-celeste rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">EM</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-celeste">
+                      Emiliano Mendoz
+                    </h4>
+                    <p class="text-gray-600 font-medium">Secretario</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-red rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">GP</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-red">
+                      Graciela Pugliese
+                    </h4>
+                    <p class="text-gray-600 font-medium">Tesorería</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-yellow rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-gray-700 font-bold">MZ</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-blue">
+                      Matias Zabala
+                    </h4>
+                    <p class="text-gray-600 font-medium">Primer Vocal</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-blue rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">CV</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-blue">
+                      Claudia Vaca
+                    </h4>
+                    <p class="text-gray-600 font-medium">Segundo Vocal</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-green rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">CM</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-green">
+                      Carina Maiorano
+                    </h4>
+                    <p class="text-gray-600 font-medium">
+                      Primer Vocal Suplente
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="text-3xl font-bold mb-8 federation-blue text-center">
+                Colegio de Jueces y Árbitros
+              </h3>
+
+              <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-celeste rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">SR</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-celeste">
+                      Susana Ruz
+                    </h4>
+                    <p class="text-gray-600 font-medium">Presidente</p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-6 text-center">
+                    <div
+                      class="w-20 h-20 bg-federation-red rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                      <span class="text-3xl text-white font-bold">RR</span>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2 federation-red">
+                      Romina Rodriguez
+                    </h4>
+                    <p class="text-gray-600 font-medium">Coordinadora</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Valores -->
+        <section id="valores" class="py-16 bg-gray-50">
+          <div class="container mx-auto px-4">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-6 federation-blue"
+            >
+              Valores
+            </h2>
+            <p
+              class="text-center text-gray-600 mb-12 max-w-4xl mx-auto text-lg leading-relaxed"
+            >
+              En nuestra Federación creemos que el patinaje artístico es mucho
+              más que un deporte: es un espacio de encuentro, aprendizaje y
+              crecimiento. Por eso, nuestros valores son:
+            </p>
+
+            <div
+              class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            >
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <div
+                    class="w-16 h-16 bg-federation-blue rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <span class="text-3xl">🤝</span>
+                  </div>
+                  <h3
+                    class="text-2xl font-bold mb-4 federation-blue text-center"
+                  >
+                    Respeto
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-center">
+                    Hacia cada atleta, entrenador, juez y familia, reconociendo
+                    el esfuerzo y la trayectoria de todos.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <div
+                    class="w-16 h-16 bg-federation-green rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <span class="text-3xl">🌟</span>
+                  </div>
+                  <h3
+                    class="text-2xl font-bold mb-4 federation-green text-center"
+                  >
+                    Unidad
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-center">
+                    Nos identificamos como una gran familia que se apoya,
+                    acompaña y celebra cada logro, individual y colectivo.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <div
+                    class="w-16 h-16 bg-federation-yellow rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <span class="text-3xl">💪</span>
+                  </div>
+                  <h3
+                    class="text-2xl font-bold mb-4 federation-red text-center"
+                  >
+                    Compromiso
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-center">
+                    Trabajamos con responsabilidad, dedicación y pasión por el
+                    desarrollo del patinaje artístico.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <div
+                    class="w-16 h-16 bg-federation-celeste rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <span class="text-3xl">🤲</span>
+                  </div>
+                  <h3
+                    class="text-2xl font-bold mb-4 federation-celeste text-center"
+                  >
+                    Solidaridad
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-center">
+                    Fomentamos el compañerismo, la ayuda mutua y el trabajo en
+                    equipo como base de nuestra identidad.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <div
+                    class="w-16 h-16 bg-federation-red rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <span class="text-3xl">🏆</span>
+                  </div>
+                  <h3
+                    class="text-2xl font-bold mb-4 federation-red text-center"
+                  >
+                    Excelencia
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-center">
+                    Buscamos la mejora constante, priorizando el crecimiento
+                    humano junto al deportivo.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <div
+                    class="w-16 h-16 bg-federation-green rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <span class="text-3xl">🌈</span>
+                  </div>
+                  <h3
+                    class="text-2xl font-bold mb-4 federation-green text-center"
+                  >
+                    Inclusión
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed text-center">
+                    Garantizamos un espacio abierto y accesible, donde cada
+                    persona tiene la oportunidad de crecer y brillar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Objetivos -->
+        <section class="py-16 bg-white">
+          <div class="container mx-auto px-4">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-6 federation-blue"
+            >
+              Objetivos
+            </h2>
+            <p
+              class="text-center text-gray-600 mb-12 max-w-4xl mx-auto text-lg leading-relaxed"
+            >
+              Nuestra misión es acompañar y potenciar el talento de cada atleta,
+              brindando un entorno seguro, motivador y profesional. Para ello,
+              nos proponemos:
+            </p>
+
+            <div class="max-w-5xl mx-auto">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-8">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-12 h-12 bg-federation-blue rounded-full flex items-center justify-center flex-shrink-0"
+                      >
+                        <span class="text-white font-bold text-xl">1</span>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed">
+                        Acompañar a cada deportista en su camino, cuidando tanto
+                        su formación deportiva como su bienestar integral.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-8">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-12 h-12 bg-federation-green rounded-full flex items-center justify-center flex-shrink-0"
+                      >
+                        <span class="text-white font-bold text-xl">2</span>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed">
+                        Impulsar el desarrollo del patinaje artístico en todas
+                        sus modalidades y niveles.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-8">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-12 h-12 bg-federation-celeste rounded-full flex items-center justify-center flex-shrink-0"
+                      >
+                        <span class="text-white font-bold text-xl">3</span>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed">
+                        Ofrecer instancias de capacitación y actualización para
+                        entrenadores, jueces y dirigentes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-8">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-12 h-12 bg-federation-red rounded-full flex items-center justify-center flex-shrink-0"
+                      >
+                        <span class="text-white font-bold text-xl">4</span>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed">
+                        Fortalecer el espíritu federativo a través del trabajo
+                        conjunto, la participación y el sentido de pertenencia.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-8">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-12 h-12 bg-federation-yellow rounded-full flex items-center justify-center flex-shrink-0"
+                      >
+                        <span class="text-gray-700 font-bold text-xl">5</span>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed">
+                        Representar con orgullo a nuestros atletas en
+                        competencias locales, nacionales e internacionales.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-lg transition-shadow"
+                >
+                  <div class="px-6 p-8">
+                    <div class="flex items-start gap-4">
+                      <div
+                        class="w-12 h-12 bg-federation-blue rounded-full flex items-center justify-center flex-shrink-0"
+                      >
+                        <span class="text-white font-bold text-xl">6</span>
+                      </div>
+                      <p class="text-gray-600 leading-relaxed">
+                        Mantener una gestión transparente, responsable y cercana
+                        a la comunidad.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Misión -->
+        <section class="py-16">
+          <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+              >
+                <div class="grid md:grid-cols-2">
+                  <div class="relative h-64 md:h-auto">
+                    <img
+                      src="./public/images/design-mode/PHOTO-2025-11-27-19-53-37.jpg"
+                      alt="Misión"
+                      class="object-contain w-full h-full"
+                    />
+                  </div>
+                  <div class="px-6 p-8 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold mb-4 federation-blue">
+                      Nuestra Misión
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                      Promover y desarrollar el patinaje artístico y de
+                      velocidad en Gran Buenos Aires, brindando oportunidades de
+                      crecimiento deportivo a atletas de todas las edades y
+                      niveles.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                      Trabajamos para mantener los más altos estándares de
+                      calidad en la organización de competencias, capacitaciones
+                      y eventos que fortalezcan nuestra comunidad deportiva.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="py-16 bg-white">
+          <div class="container mx-auto px-4">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-center mb-12 federation-blue"
+            >
+              Contacto
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <h3 class="text-2xl font-bold mb-6 federation-blue">Sede</h3>
+                  <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                      <span class="text-3xl">📍</span>
+                      <div>
+                        <p class="font-semibold text-lg mb-1">Dirección</p>
+                        <p class="text-gray-600">
+                          Ombú 3334, San Justo. Buenos Aires 🇦🇷
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                      <span class="text-3xl">📧</span>
+                      <div>
+                        <p class="font-semibold text-lg mb-1">Email</p>
+                        <a
+                          href="mailto:camila.castillo@gmail.com"
+                          class="text-gray-600"
+                          >camila.castillo@gmail.com</a
+                        >
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                      <span class="text-3xl">📞</span>
+                      <div>
+                        <p class="font-semibold text-lg mb-1">Teléfono</p>
+                        <p class="text-gray-600">+54 11 1234-5678</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-8 pt-6 border-t">
+                    <p class="font-semibold mb-4 text-lg">
+                      Síguenos en redes sociales
+                    </p>
+                    <div class="flex gap-4">
+                      <a
+                        href="https://www.facebook.com/share/1SciZ5j7q8/"
+                        class="w-14 h-14 bg-federation-blue rounded-full flex items-center justify-center text-white hover:bg-federation-celeste transition-colors text-xl font-bold"
+                        aria-label="Facebook"
+                        >F</a
+                      >
+                      <a
+                        href="https://www.instagram.com/fed.gran.bs.as?igsh=YjF5d3BxdDA3enJw"
+                        class="w-14 h-14 bg-federation-red rounded-full flex items-center justify-center text-white hover:bg-federation-yellow transition-colors text-xl font-bold"
+                        aria-label="Instagram"
+                        >I</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm hover:shadow-xl transition-shadow"
+              >
+                <div class="px-6 p-8">
+                  <h3 class="text-2xl font-bold mb-6 federation-green">
+                    Ubicación
+                  </h3>
+                  <div
+                    class="bg-gray-200 rounded-lg h-80 flex items-center justify-center mb-4"
+                  >
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.124459576249!2d-58.55670682419815!3d-34.67680817292813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc882ab3cee61%3A0x4e0bf5d00412867d!2sOmb%C3%BA%203334%2C%20B1754BCP%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1763167300140!5m2!1ses!2sar"
+                      class="border-0 w-full h-full"
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="w-full px-12 py-24 bg-white border-t-2">
+          <div class="flex gap-4 w-full justify-center">
+            <div class="w-44 h-44 items-center justify-center flex">
+              <img
+                src="../public/images/companies/cap.jpeg"
+                alt="Company1"
+                width="100"
+                height="100"
+                class="w-full h-full"
+              />
+            </div>
+            <div class="w-44 h-44 items-center justify-center flex">
+              <img
+                src="../public/images/companies/comite-olimpico.jpeg"
+                alt="Company1"
+                width="100"
+                height="100"
+                class="w-full h-full"
+              />
+            </div>
+            <div class="w-44 h-44 items-center justify-center flex">
+              <img
+                src="../public/images/companies/enard.jpeg"
+                alt="Company1"
+                width="100"
+                height="100"
+                class="w-full h-full"
+              />
+            </div>
+            <div class="w-44 h-44 items-center justify-center flex">
+              <img
+                src="../public/images/companies/world-skate-america.jpeg"
+                alt="Company1"
+                width="100"
+                height="100"
+                class="w-full h-full"
+              />
+            </div>
+            <div class="w-44 h-44 items-center justify-center flex">
+              <img
+                src="../public/images/companies/world-skate.jpeg"
+                alt="Company1"
+                width="100"
+                height="100"
+                class="w-full h-full"
+              />
+            </div>
+          </div>
+        </footer>
+        <p class="opacity-60 text-center my-2">
+          Todos los derechos reservados - Federación Gran Buenos Aires
+          <span id="year"></span>
+        </p>
+      </main>
+    </div>
+
+    <script>
+      // Set current year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
